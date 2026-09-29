@@ -19,23 +19,23 @@ Now let's make it formal. Machine learning is a branch of computer science and a
 The data we show the model has two parts:
 
 
-- The feature matrix, usually written as capital X. A matrix is a two-dimensional array: the rows are our observations - the objects we want to make predictions for, one row per email - and the columns are the features.
-- The target variable, usually written as lowercase y. It is a vector - a one-dimensional array of numbers. For each row of X it contains the answer: 1 if the email is spam, 0 if not.
+- The feature matrix, usually written as capital $X$. A matrix is a two-dimensional array: the rows are our observations - the objects we want to make predictions for, one row per email - and the columns are the features.
+- The target variable, usually written as lowercase $y$. It is a vector - a one-dimensional array of numbers. For each row of $X$ it contains the answer: 1 if the email is spam, 0 if not.
 
 
-If you studied math a long time ago, don't worry about the terminology: X is just a two-dimensional array - an array of arrays, or a table - and y is a one-dimensional array of numbers.
+If you studied math a long time ago, don't worry about the terminology: $X$ is just a two-dimensional array - an array of arrays, or a table - and $y$ is a one-dimensional array of numbers.
 
 ## The model as a function
 
-We put X and y into a machine learning algorithm and train the model. The model is usually denoted as g: it is a function that takes the feature matrix X as input and produces something that is approximately close to the target y.
+We put $X$ and $y$ into a machine learning algorithm and train the model. The model is usually denoted as $g$: it is a function that takes the feature matrix $X$ as input and produces something that is approximately close to the target $y$.
 
-g(X) ≈ y
+$g(X)≈y$
 
-The goal of supervised machine learning is to come up with this function g such that when we apply it to X, the output is as close as possible to the target variable. The process of finding g - looking at the features and coming up with the function - is called training.
+The goal of supervised machine learning is to come up with this function $g$ such that when we apply it to $X$, the output is as close as possible to the target variable. The process of finding $g$ - looking at the features and coming up with the function - is called *training*.
 
-For the car price example, the target is the price, and X is all the information about the car: model, make, mileage and so on. We want g to take this information and produce a price as close as possible to the actual one. If the actual price of a car is $11k and the model predicts $15k, that's fine: it's not always possible to predict the exact price, but we want it to be close enough for our purposes.
+For the car price example, the target is the price, and $X$ is all the information about the car: model, make, mileage and so on. We want $g$ to take this information and produce a price as close as possible to the actual one. If the actual price of a car is $11k and the model predicts $15k, that's fine: it's not always possible to predict the exact price, but we want it to be close enough for our purposes.
 
-When we apply the trained g to the features, we get predictions:
+When we apply the trained $g$ to the features, we get predictions:
 
 | Features (data) | Predictions (output) |
 | --- | ---: |
@@ -52,7 +52,7 @@ Based on what g outputs and what the target variable looks like, there are diffe
 
 ### Regression
 
-Regression is the car price case: g returns a *number*. The output can be any number from zero to plus infinity - or whatever range makes sense for the problem.
+Regression is the car price case: $g$ returns a *number*. The output can be any number from zero to plus infinity - or whatever range makes sense for the problem.
 
 Predicting the price of a house is another example: from the number of square meters, the number of rooms, the distance from the center and the closest subway station, we predict that the house costs, say, $1 million. Anything where the output is a number is a regression problem.
 
@@ -75,13 +75,13 @@ Google search does something similar: when you search for "machine learning zoom
 
 ## Summary
 
-Supervised machine learning is about teaching an algorithm by showing it examples. The examples go into the feature matrix X - all the characteristics of the objects we want to make predictions for - and the vector y is the target we want to learn.
+Supervised machine learning is about teaching an algorithm by showing it examples. The examples go into the feature matrix $X$ - all the characteristics of the objects we want to make predictions for - and the vector $y$ is the target we want to learn.
 
-The goal is to come up with a function g such that when we apply it to the feature matrix, we get something very close to the target variable. Inside, g extracts patterns from X. What exactly g looks like is what we will talk about throughout the course.
+The goal is to come up with a function $g$ such that when we apply it to the feature matrix, we get something very close to the target variable. Inside, $g$ extracts patterns from $X$. What exactly $g$ looks like is what we will talk about throughout the course.
 
 Depending on the type of the target variable, we get regression, classification - which can be multiclass or binary - and ranking.
 
-![Summary: g(X) approximates y, and y can be a number, a category, or a ranking](03-supervised-ml-07-summary-imagegen-pilot.jpg)
+![Summary: g(X) approximates y, and y can be a number, a category, or a ranking](images/03-supervised-ml-07-summary-imagegen-pilot.jpg)
 
 In this course we focus mostly on classification, but the next lesson is about regression. Binary classification is probably the most widely used type of supervised machine learning - you will definitely encounter a problem that can be solved as binary classification.
 
@@ -93,11 +93,11 @@ In Supervised Machine Learning (SML) there are always labels associated with cer
 The model is trained, and then it can make predictions on new features. In this way, the model
 is taught by certain features and targets. 
 
-* **Feature matrix (X):** made of observations or objects (rows) and features (columns).
-* **Target variable (y):** a vector with the target information we want to predict. For each row of X there's a value in y.
+* **Feature matrix ($X$):** made of observations or objects (rows) and features (columns).
+* **Target variable ($y$):** a vector with the target information we want to predict. For each row of $X$ there's a value in $y$.
 
 
-The model can be represented as a function, **g**, that takes the feature matrix, **X**, as **input** and tries to predict values as close as possible to the targets, **y**. The process of **finding** this function **g** is called **training**.
+The model can be represented as a function, **$g$**, that takes the feature matrix, **$X$**, as **input** and tries to predict values as close as possible to the targets, **$y$**. The process of **finding** this function **$g$** is called **training**.
 
 ### Types of SML problems 
 
@@ -107,4 +107,4 @@ The model can be represented as a function, **g**, that takes the feature matrix
 	* **Multiclass problems:** there are more than two categories. 
 * **Ranking:** the output is the top scores associated with corresponding items. It is applied in recommender systems. 
 
-In summary, SML is about teaching the model by showing it different examples, and the goal is to come up with a function, that takes the feature matrix as input, and makes predictions of values as close as possible to the **y** targets. 
+In summary, SML is about teaching the model by showing it different examples, and the goal is to come up with a function, that takes the feature matrix as input, and makes predictions of values as close as possible to the **$y$** targets. 

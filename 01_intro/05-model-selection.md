@@ -8,17 +8,17 @@ In the previous lesson we saw that modeling is the step where the actual machine
 
 ## Simulating future data with a validation set
 
-Think about how we use a model in practice. It's July, and we take our feature matrix X and the target y and train the model g. In August we deploy it: the model trained on the July data is applied to new spam messages, and for each one it produces a score - for example, a 70% probability that the email is spam.
+Think about how we use a model in practice. It's July, and we take our feature matrix $X$ and the target $y$ and train the model $g$. In August we deploy it: the model trained on the July data is applied to new spam messages, and for each one it produces a score - for example, a 70% probability that the email is spam.
 
 When we evaluate the model in July, we want to mimic this way of using it: we want to know how well the model will perform on data it hasn't seen. The model from July didn't see the data from August.
 
 Of course, we cannot go into the future and take the August data. But we can do something close enough: take our dataset, put aside a small part of it - say 20% - and pretend this part doesn't exist. We train on the remaining 80% only. The held-out part plays the role of the August data; we call it the **validation set**.
 
-![Train data is used to fit g; the validation set is used to check it](05-model-selection-01-train-validation-imagegen-pilot.jpg)
+![Train data is used to fit g; the validation set is used to check it](images/05-model-selection-01-train-validation-imagegen-pilot.jpg)
 
-From the training set we extract the feature matrix X and the target y, and we train the model g using only these. From the validation set we extract another matrix, Xv, and its target yv - the model has never seen them during training.
+From the training set we extract the feature matrix $X$ and the target $y$, and we train the model $g$ using only these. From the validation set we extract another matrix, $X_{\nu}$, and its target $y_{\nu}$ - the model has never seen them during training.
 
-We apply g to Xv and get predictions. Because the output is a probability, we first convert the predictions into the final decisions. For example, if the probability is greater than 0.5 we predict spam, otherwise not spam. Then we compare the predicted values with the actual values of yv - spam or not spam - and count in how many cases the model was correct. If it was correct in 4 out of 6 cases, its accuracy is 66%.
+We apply $g$ to $X_{\nu}$ and get predictions. Because the output is a probability, we first convert the predictions into the final decisions. For example, if the probability is greater than 0.5 we predict spam, otherwise not spam. Then we compare the predicted values with the actual values of $y_{\nu}$ - spam or not spam - and count in how many cases the model was correct. If it was correct in 4 out of 6 cases, its accuracy is 66%.
 
 ## Comparing models
 
@@ -47,7 +47,7 @@ In statistics this is called the multiple comparisons problem: when we perform t
 
 To guard against this, instead of holding out one dataset we hold out two:
 
-![The 60/20/20 split into train, validation and test](05-model-selection-03-train-valid-test-imagegen-pilot.jpg)
+![The 60/20/20 split into train, validation and test](images/05-model-selection-03-train-valid-test-imagegen-pilot.jpg)
 
 - 20% for validation
 - 20% more for testing
@@ -55,7 +55,7 @@ To guard against this, instead of holding out one dataset we hold out two:
 
 (60/20/20 is not set in stone - it can be any values.)
 
-So we have three non-overlapping subsets: the training data, the validation data and the test data. We put the test set away and forget about it for now. Then we do model selection exactly as before: train g on X and y, apply it to Xv, compute the accuracies, and select the best model - say, the neural network.
+So we have three non-overlapping subsets: the training data, the validation data and the test data. We put the test set away and forget about it for now. Then we do model selection exactly as before: train $g$ on $X$ and $y$, apply it to $X_{\nu}$, compute the accuracies, and select the best model - say, the neural network.
 
 Then, to make sure this model didn't just get lucky on the validation set, we apply it to the test set - one extra round of validation. If the validation accuracy was 80% and the test accuracy is 79%, the numbers are close, and we conclude that the model indeed behaves well.
 
@@ -83,11 +83,10 @@ This was the theoretical introduction. In the next sessions we will code all of 
 - Neural Network
 - Or many others
 
-The validation dataset is not used in training. There are feature matrices and y vectors
+The validation dataset is not used in training. There are feature matrices and $y$ vectors
 for both training and validation datasets. 
-The model is fitted with training data, and it is used to predict the y values of the validation
-feature matrix. Then, the predicted y values (probabilities)
-are compared with the actual y values. 
+The model is fitted with training data, and it is used to predict the $y$ values of the validation feature matrix. Then, the predicted $y$ values (probabilities)
+are compared with the actual $y$ values. 
 
 **Multiple comparisons problem (MCP):** just by chance one model can be lucky and obtain
 good predictions because all of them are probabilistic. 

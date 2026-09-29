@@ -25,7 +25,7 @@ Using this information, an expert can determine the price. If you want to sell a
 
 If an expert can do this, so can a model. We take a dataset with these characteristics and the prices, put it into a machine learning algorithm, and the model learns the patterns itself. This is the essence of machine learning: we take data, and the model extracts patterns from it. This way we replicate what experts learn from data.
 
-![An expert extracts patterns from data; so does machine learning](01-what-is-ml-03-expert-or-model-imagegen-pilot.jpg)
+![An expert extracts patterns from data; so does machine learning](images/01-what-is-ml-03-expert-or-model-imagegen-pilot.jpg)
 
 ## Features and target
 
@@ -41,7 +41,7 @@ We collect the features of all the cars we have into a table, together with a co
 
 Training means taking the features and the target and giving them to a machine learning algorithm. The algorithm produces a model.
 
-![Model training: features and target go in, a model comes out](01-what-is-ml-05-model-training-imagegen-pilot.jpg)
+![Model training: features and target go in, a model comes out](images/01-what-is-ml-05-model-training-imagegen-pilot.jpg)
 
 The model encapsulates all the patterns it learned from the data. It is a single artifact we can save and use later.
 
@@ -49,7 +49,7 @@ The model encapsulates all the patterns it learned from the data. It is a single
 
 Once we have the model, we can use it to predict prices of cars for which we don't know the price. We take the features - all the information about a car except the price, because this is what we want to predict - put them into the model, and the model outputs the prediction.
 
-![Using a model: features go in, predictions come out](01-what-is-ml-06-using-model-imagegen-pilot.jpg)
+![Using a model: features go in, predictions come out](images/01-what-is-ml-06-using-model-imagegen-pilot.jpg)
 
 The model is not always able to predict the exact price of a specific car. But the predictions are usually correct on average: for a car of this year, this make and this mileage, this is roughly how much such a car costs. For a specific car it might be a bit lower or higher.
 
@@ -77,3 +77,4 @@ In summary, ML is a process of **extracting patterns from data**, which is of tw
 * target (property to predict for unseen objects). 
 
 Therefore, new feature values are presented to the model, and it makes **predictions** from the learned patterns.
+
